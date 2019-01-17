@@ -1,5 +1,4 @@
-let g_val = 9.81, // value of gravity
-    drag = 0.99, // drag of rolling ball
+let drag = 0.98, // drag of rolling ball
     bounce_loss = 0.89, // coefficient of restitution
     num_balls = 1, // initial number of balls
     has_roof = true, // whether the screen is bounded or not
@@ -281,6 +280,31 @@ class Circle {
   }
 }
 
+class Cue {
+  constructor(offset, angle) { 
+    this.color = '#f39c12';
+    this.length = 300;
+    this.width1 = 10;
+    this.width2 = 30;
+    this.origin = origin;
+    this.offset = offset;
+    this.angle  = angle;
+  }
+
+  fill(ctx) {
+    return;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.moveTo(this.offset.x, this.offset.y);
+    ctx.lineTo(this.offset.x - this.length, this.offset.y);
+    ctx.lineTo(this.offset.x - this.length, this.offset.y - this.width2);
+    ctx.lineTo(this.offset.x, this.offset.y - this.width1);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+}
+
 
 animate = () => {
 
@@ -345,7 +369,7 @@ animate = () => {
       balls[i].curr_speed   *= drag;
 
       // if speed is too small, stop the ball altogether.
-      if (Math.abs(b.curr_speed_x) + Math.abs(b.curr_speed) < 0.3) {
+      if (Math.abs(b.curr_speed_x) + Math.abs(b.curr_speed) < 0.1) {
         balls[i].rolling = 0;
 
         has_balls_rolling();
@@ -399,20 +423,30 @@ animate = () => {
   // mouse line
   if (mousedown_stats.down) {
     ctx.beginPath();
-    ctx.moveTo(mousedown_stats.coords.x - canvas_x,  mousedown_stats.coords.y - canvas_y);
-    ctx.lineTo(mousedown_stats.current.x - canvas_x, mousedown_stats.current.y - canvas_y);
+    ctx.moveTo(balls[0].x, balls[0].y);
+    ctx.lineTo(
+      mousedown_stats.coords.x - mousedown_stats.current.x + balls[0].x,
+      mousedown_stats.coords.y - mousedown_stats.current.y + balls[0].y
+      );
     ctx.lineWidth = 5;
 
     let fadeout = Math.pow(0.9, (((+ new Date()) - mousedown_stats.time)/100));
     ctx.strokeStyle = 'hsla(' + random_color[0] + ',100%,50%,' + fadeout + ')';
     ctx.stroke(); 
+
+    /*let cue = new Cue(
+      {x: mousedown_stats.coords.x - canvas_x,  y: mousedown_stats.coords.y - canvas_y},
+      {x: mousedown_stats.current.x - canvas_x, y: mousedown_stats.current.y - canvas_y},
+      0
+    );
+    cue.fill(ctx);*/
   }
 
   // mouse coordinates
-  var ax = r(mousedown_stats.current.x - canvas_x), ay = r(mousedown_stats.current.y - canvas_y)
-  ctx.font = "12px Arial";
-  ctx.fillStyle="#aaa"
-  ctx.fillText(`(${ax}, ${ay})`, ax, ay);
+  //var ax = r(mousedown_stats.current.x - canvas_x), ay = r(mousedown_stats.current.y - canvas_y)
+  //ctx.font = "12px Arial";
+  //ctx.fillStyle="#aaa"
+  //ctx.fillText(`(${ax}, ${ay})`, ax, ay);
   ///////////////////////
 
    window.requestAnimationFrame(animate);
@@ -475,6 +509,12 @@ canvas_obj.addEventListener('mousedown', function(e) {
 
 canvas_obj.addEventListener('mousemove', function(e) {
   mousedown_stats.current = {x: e.clientX, y: e.clientY};
+
+  let dx = mousedown_stats.coords.x - mousedown_stats.current.x;
+  let dy = mousedown_stats.coords.y - mousedown_stats.current.y;
+  //let cos = dx / Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2));
+  //console.log(dx, dy, Math.acos(cos));
+
 });
 
 // throw the white ball around!
@@ -499,8 +539,8 @@ canvas_obj.addEventListener('mouseup', function(e) {
       distance_x = coords.x - mds.coords.x,
       distance_y = coords.y - mds.coords.y,
 
-      speed_x = 100 * distance_x / duration,
-      speed_y = 100 * distance_y / duration;
+      speed_x = -100 * distance_x / duration,
+      speed_y = -100 * distance_y / duration;
 
   
   // balls[0].curr_speed_x = Math.abs(speed_x);
