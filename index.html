@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Canvas Pool</title>
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+<link href="css/pool.css" type="text/css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|ZCOOL+KuaiLe" rel="stylesheet"> 
+
+<body>
+  <section id="footer">
+    Made with &hearts; by <a href="https://kupfer.es/" target="_blank">Nico Kupfer</a>
+  </section>
+  <section id="score" class="player_1">
+    <div class="score" id="score_1">0</div>
+    <div class="score" id="score_2">0</div>
+    <div class="timer" id="timer">
+      <span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+  </section>
+  <div class="pool-table">
+
+    <div class="table-carpet"></div>
+    <div class="table-border"></div>
+
+    <!-- pockets -->
+    <div class="pocket top-left"></div>
+    <div class="pocket top-center"></div>
+    <div class="pocket top-right"></div>
+    <div class="pocket bottom-left"></div>
+    <div class="pocket bottom-center"></div>
+    <div class="pocket bottom-right"></div>
+
+    <!-- holes -->
+    <div class="hole top-left"></div>
+    <div class="hole top-center"></div>
+    <div class="hole top-right"></div>
+    <div class="hole bottom-left"></div>
+    <div class="hole bottom-center"></div>
+    <div class="hole bottom-right"></div>
+
+    <!-- cue -->
+    <div class="billiard-cue"></div>
+    <canvas id="canvas"></canvas>
+  </div>
+  <script type="text/javascript" src="js/pool.js"></script>
+  <script type="text/javascript" src="js/score.js"></script>
+  
+</body>      
