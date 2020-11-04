@@ -425,8 +425,8 @@ animate = () => {
     ctx.beginPath();
     ctx.moveTo(balls[0].x, balls[0].y);
     ctx.lineTo(
-      mousedown_stats.coords.x - mousedown_stats.current.x + balls[0].x,
-      mousedown_stats.coords.y - mousedown_stats.current.y + balls[0].y
+      - mousedown_stats.coords.x + mousedown_stats.current.x + balls[0].x,
+      - mousedown_stats.coords.y + mousedown_stats.current.y + balls[0].y
       );
     ctx.lineWidth = 5;
 
@@ -500,6 +500,9 @@ window.requestAnimationFrame(animate);
 
 // Listeners
 canvas_obj.addEventListener('mousedown', function(e) {
+  if (has_balls_rolling()) {
+    return; // Do not allow throwing balls while there are other balls moving around the table.
+  }
   mousedown_stats.coords = {x: e.clientX, y: e.clientY};
   //console.log(e);
   mousedown_stats.time = + new Date();
@@ -519,6 +522,9 @@ canvas_obj.addEventListener('mousemove', function(e) {
 
 // throw the white ball around!
 canvas_obj.addEventListener('mouseup', function(e) {
+  if (!mousedown_stats.down) {
+    return; // do not allow to "release" if it wasn't pressed "down"
+  }
   mousedown_stats.down = false;
 
   // can't hit while balls are running
@@ -539,8 +545,8 @@ canvas_obj.addEventListener('mouseup', function(e) {
       distance_x = coords.x - mds.coords.x,
       distance_y = coords.y - mds.coords.y,
 
-      speed_x = -100 * distance_x / duration,
-      speed_y = -100 * distance_y / duration;
+      speed_x = 100 * distance_x / duration,
+      speed_y = 100 * distance_y / duration;
 
   
   // balls[0].curr_speed_x = Math.abs(speed_x);
