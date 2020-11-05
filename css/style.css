@@ -30,23 +30,18 @@ html, body, input {
   border-radius: 100%;
 }
 #score {
-  border: 1px solid #666;
   border-radius: 3px;
-  box-shadow: 0 0 7px 0px #aaa;
   z-index: 1;
-  background-color: #ecf0f1;
-  height: 200px;
-  width: 400px;
-  left: 50%;
-  margin-left: -200px;
-  position: absolute;
   padding: 1em 3em;
-  top: 20px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  width: 400px;
 }
 #score .score {
   width: 30%;
   font-size: 70px;
-  position: absolute;
   top: 10px;
   display: inline-block;
   height: 80px;
@@ -55,13 +50,10 @@ html, body, input {
 }
 #timer {
     height: 50px;
-    top: 130px;
-    position: absolute;
-    left: 25%;
-    width: 50%;
+    width: 100px ;
     text-align: center;
     line-height: 50px;
-font-size: 25px;
+    font-size: 25px;
 }
 #timer, #score .score {
   border-radius: 5px;  

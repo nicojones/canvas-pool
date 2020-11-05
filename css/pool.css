@@ -3,7 +3,7 @@
   width: 600px;
   height: 350px;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   margin: -175px 0 0 -300px;
 }
@@ -278,3 +278,47 @@
   margin: 0;
   padding: 0;
 }
+
+
+
+/*.ball-rolling {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: red;
+  border-radius: 50%;
+  background: -webkit-radial-gradient(25px 25px, circle, red, #000);
+  background: -moz-radial-gradient(25px 25px, circle, red, #000);
+  background: radial-gradient(25px 25px, circle, red, #000);
+ 
+  /* Animation to spin and move the sphere */
+  -webkit-animation: spin 1000ms linear infinite;
+  -moz-animation: spin 1000ms linear infinite;
+  -ms-animation: spin 1000ms linear infinite;
+  animation: spin 1000ms linear infinite;
+  
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  
+  position: absolute;
+  left: 0;
+}
+
+/* Spinning the sphere using key frames */
+@-ms-keyframes spin {
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}*/
+
