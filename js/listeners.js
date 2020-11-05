@@ -1,7 +1,7 @@
-
+const cursorActions = cursor_actions();
 
 // Listeners
-canvas_obj.addEventListener('mousedown', function(e) {
+canvas_obj.addEventListener(cursorActions.down, function(e) {
   if (has_balls_rolling()) {
     return; // Do not allow throwing balls while there are other balls moving around the table.
   }
@@ -11,7 +11,7 @@ canvas_obj.addEventListener('mousedown', function(e) {
   create_random_color();
 });
 
-canvas_obj.addEventListener('mousemove', function(e) {
+canvas_obj.addEventListener(cursorActions.move, function(e) {
   mousedown_stats.current = {x: e.clientX, y: e.clientY};
 
   // let dx = mousedown_stats.coords.x - mousedown_stats.current.x;
@@ -22,7 +22,7 @@ canvas_obj.addEventListener('mousemove', function(e) {
 });
 
 // throw the white ball around!
-canvas_obj.addEventListener('mouseup', function(e) {
+canvas_obj.addEventListener(cursorActions.up, function(e) {
   if (!mousedown_stats.down) {
     return; // do not allow to "release" if it wasn't pressed "down"
   }
