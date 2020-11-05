@@ -22,8 +22,8 @@ function resize_elements() {
 
   let balls_colors = {
     black: [0, 100, 0],
-    flat: [60, 100, 40],
-    stripe: [208,80,30]
+    flat: [282,44,47],
+    stripe: [48, 89, 50]
   };
 
   balls_coords = [
@@ -44,19 +44,19 @@ function resize_elements() {
     // {x: 0.75*wwidth + 2*br, y: wheigh/2 + br,   color: [164, 100, 50]    }, // 14
     // {x: 0.75*wwidth + 2*br, y: wheigh/2 + br*2, color: [0, 50, 50]    }, // 15
     {x: 0.75*wwidth - 2*br, y: wheigh/2,        color: balls_colors.flat    }, // 1
-    {x: 0.75*wwidth - br, y: wheigh/2 - br/2,   color: balls_colors.flat    }, // 2
+    {x: 0.75*wwidth - br, y: wheigh/2 - br/2,   color: balls_colors.stripe    }, // 2
     {x: 0.75*wwidth - br, y: wheigh/2 + br/2,   color: balls_colors.flat      }, // 3
-    {x: 0.75*wwidth, y: wheigh/2 - br,          color: balls_colors.flat    }, // 4
+    {x: 0.75*wwidth, y: wheigh/2 - br,          color: balls_colors.stripe    }, // 4
     {x: 0.75*wwidth + br, y: wheigh/2 - br*0.5, color: balls_colors.flat    }, // 5
-    {x: 0.75*wwidth, y: wheigh/2 + br,          color: balls_colors.flat    }, // 6
+    {x: 0.75*wwidth, y: wheigh/2 + br,          color: balls_colors.stripe    }, // 6
     {x: 0.75*wwidth + br, y: wheigh/2 - br*1.5, color: balls_colors.flat       }, // 7
     {x: 0.75*wwidth, y: wheigh/2,               color: [0, 100, 0] }, // 8
     {x: 0.75*wwidth + br, y: wheigh/2 + br*0.5, color: balls_colors.stripe    }, // 9
-    {x: 0.75*wwidth + br, y: wheigh/2 + br*1.5, color: balls_colors.stripe    }, // 10
+    {x: 0.75*wwidth + br, y: wheigh/2 + br*1.5, color: balls_colors.flat    }, // 10
     {x: 0.75*wwidth + 2*br, y: wheigh/2 - br*2, color: balls_colors.stripe     }, // 11
     {x: 0.75*wwidth + 2*br, y: wheigh/2 - br,   color: balls_colors.stripe    }, // 12
-    {x: 0.75*wwidth + 2*br, y: wheigh/2,        color: balls_colors.stripe    }, // 13
-    {x: 0.75*wwidth + 2*br, y: wheigh/2 + br,   color: balls_colors.stripe    }, // 14
+    {x: 0.75*wwidth + 2*br, y: wheigh/2,        color: balls_colors.flat  }, // 13
+    {x: 0.75*wwidth + 2*br, y: wheigh/2 + br,   color: balls_colors.flat    }, // 14
     {x: 0.75*wwidth + 2*br, y: wheigh/2 + br*2, color: balls_colors.stripe    }, // 15
 
   ];
