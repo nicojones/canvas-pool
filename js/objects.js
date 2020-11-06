@@ -28,8 +28,9 @@ class Ball {
   draw() {
     let cx = this.x,
         cy = this.y,
-        br = this.radius * 0.2,
-        grd = ctx.createRadialGradient(cx - br, cy - br, 0, cx, cy, this.radius);
+        br = this.radius * 0.2;
+        // console.log(cx - br, cy - br, 0, cx, cy, this.radius)
+    const grd = ctx.createRadialGradient(cx - br, cy - br, 0, cx, cy, this.radius);
     
     grd.addColorStop(1, 'hsl(' + this.color[0] + ',' + this.color[1] + '%,' + this.color[2] + '%)');
     grd.addColorStop(0, "#eee");

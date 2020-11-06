@@ -1,5 +1,5 @@
-let drag = 0.98, // drag of rolling ball
-    bounce_loss = 0.89, // coefficient of restitution
+let drag = 0.988, // drag of rolling ball
+    bounce_loss = 0.92, // coefficient of restitution
     num_balls = 1, // initial number of balls
     has_roof = true, // whether the screen is bounded or not
     balls = [], // the balls in the canvas
@@ -11,7 +11,8 @@ let drag = 0.98, // drag of rolling ball
     center_distance = 10,
     balls_rolling = false,
     speed_boost = 0.1, // increase to make the ball have more power
-    balls_coords = [];
+    balls_coords = [],
+    _on_ = false;
 
 let wwidth, // screen width
     wheigh, // screen height. [no typo]

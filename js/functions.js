@@ -100,13 +100,25 @@ function cursor_actions () {
   const mouseActions = {
     down: 'mousedown',
     move: 'mousemove',
-    up: 'mouseup'
+    up: 'mouseup',
+    isTouch: false
   };
   if (is_touch_device()) {
     mouseActions.down = 'touchstart';
     mouseActions.move = 'touchmove',
     mouseActions.up = 'touchend'
+    mouseActions.isTouch = true
   }
 
+  console.log('WHAAAT', mouseActions.down)
+
   return mouseActions;
+}
+
+function cursorXY (e) {
+  if (cursorActions.isTouch) {
+    return {x: e.touches[0].clientX, y: e.touches[0].clientY};
+  } else {
+    return {x: e.clientX, y: e.clientY};
+  }
 }
