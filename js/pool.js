@@ -1,14 +1,4 @@
 
-
-// Settings form
-// const form_inputs = {
-//   visible:     document.getElementById('keep_visible'),
-//   help_button: document.getElementById('help_button'),
-//   help_box:    document.getElementById('help'),
-// };
-
-
-
 animate = () => {
 
   ctx.restore();
@@ -136,12 +126,12 @@ animate = () => {
     ctx.strokeStyle = 'hsla(' + random_color[0] + ',100%,50%,100%)';
     ctx.stroke(); 
 
-    /*let cue = new Cue(
+    let cue = new Cue(
       {x: mousedown_stats.coords.x - canvas_x,  y: mousedown_stats.coords.y - canvas_y},
       {x: mousedown_stats.current.x - canvas_x, y: mousedown_stats.current.y - canvas_y},
       0
     );
-    cue.fill(ctx);*/
+    cue.fill(ctx);
   }
 
   // mouse coordinates

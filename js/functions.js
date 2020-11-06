@@ -110,8 +110,6 @@ function cursor_actions () {
     mouseActions.isTouch = true
   }
 
-  console.log('WHAAAT', mouseActions.down)
-
   return mouseActions;
 }
 

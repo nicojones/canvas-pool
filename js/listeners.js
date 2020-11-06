@@ -12,12 +12,6 @@ canvas_obj.addEventListener(cursorActions.down, function(e) {
 
 canvas_obj.addEventListener(cursorActions.move, function(e) {
   mousedown_stats.current = cursorXY(e);
-
-  // let dx = mousedown_stats.coords.x - mousedown_stats.current.x;
-  // let dy = mousedown_stats.coords.y - mousedown_stats.current.y;
-  //let cos = dx / Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2));
-  //console.log(dx, dy, Math.acos(cos));
-
 });
 
 // throw the white ball around!
@@ -29,33 +23,14 @@ canvas_obj.addEventListener(cursorActions.up, function(e) {
 
   score_hit_ball();
   
-  // if (balls[0].rolling) {
-  //   console.info("can't hit while rolling");
-  //   return false;
-  // }
-console.log(e);  
   let distance_x = mousedown_stats.current.x - mousedown_stats.coords.x,
       distance_y = mousedown_stats.current.y - mousedown_stats.coords.y,
 
       speed_x = distance_x * speed_boost,
       speed_y = distance_y * speed_boost;
 
-      console.log(speed_x, speed_y)
-  
-  // balls[0].curr_speed_x = Math.abs(speed_x);
-  // balls[0].curr_speed   = Math.abs(speed_y);
-  // balls[0].x_direction  = speed_x < 0 ? -1 : 1;
-  // balls[0].y_direction  = speed_y < 0 ? -1 : 1;
   balls[0].curr_speed_x = speed_x;
   balls[0].curr_speed   = speed_y;
   balls[0].rolling = 1;
   balls[0].ghost = false;
 });
-
-
-// form_inputs.help_button.addEventListener('click', function(e) {
-//   form_inputs.help_box.style.display = 'inline-block';
-// });
-// form_inputs.help_box.addEventListener('click', function(e) {
-//   this.style.display = 'none';
-// });
